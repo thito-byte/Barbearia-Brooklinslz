@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barbearia Brooklin · Desde 2003 · São Luís-MA</title>
+<meta name="description" content="Barbearia Brooklin, tradição e profissionalismo desde 2003 em São Luís-MA. Corte adulto, infantil, barba e produtos. Agende pelo WhatsApp.">
+<meta name="theme-color" content="#16130f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316130f'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' font-weight='700' text-anchor='middle' fill='%23efe6d2'%3EB%3C/text%3E%3Crect x='8' y='52' width='48' height='4' fill='%23b3261e'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#efe6d2; --paper-2:#e4d8bf; --ink:#16130f; --ink-2:#2a251f;
+  --red:#b3261e; --navy:#1f2f4a; --muted:#6f6556; --line:rgba(22,19,15,.18);
+  --display:'Big Shoulders Display',Impact,sans-serif;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Work Sans',system-ui,sans-serif;
+  --wrap:min(1180px,92vw);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+/* textura de papel */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.22;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.25 0 0 0 0 0.2 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:var(--wrap);margin-inline:auto}
+.eyebrow{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:"";width:28px;height:2px;background:currentColor}
+.h2{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(2.6rem,6vw,4.6rem);line-height:.92;letter-spacing:-.01em}
+.h2 em{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;color:var(--red);letter-spacing:0}
+.sec-num{font-family:var(--display);font-weight:600;font-size:.95rem;color:var(--muted);letter-spacing:.1em}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--sans);font-weight:600;font-size:.92rem;padding:1rem 1.5rem;border:2px solid var(--ink);background:var(--ink);color:var(--paper);transition:transform .25s,background .25s,color .25s;cursor:pointer}
+.btn:hover{background:var(--red);border-color:var(--red);transform:translateY(-2px)}
+.btn--ghost{background:transparent;color:var(--ink)}
+.btn--ghost:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.btn svg{width:18px;height:18px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,box-shadow .3s}
+.nav.scrolled{background:rgba(239,230,210,.94);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:.7rem}
+.logo-mark{width:40px;height:40px;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--serif);font-style:italic;font-weight:600;font-size:1.4rem;position:relative}
+.logo-mark::after{content:"";position:absolute;left:6px;right:6px;bottom:5px;height:2px;background:var(--red)}
+.logo-txt{font-family:var(--display);font-weight:900;font-size:1.35rem;letter-spacing:.04em;line-height:1;text-transform:uppercase}
+.logo-txt small{display:block;font-family:var(--sans);font-weight:500;font-size:.6rem;letter-spacing:.3em;color:var(--muted)}
+.nav-links{display:flex;gap:2rem;list-style:none;font-size:.88rem;font-weight:500}
+.nav-links a{position:relative;padding:.3rem 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--red);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav .btn{padding:.7rem 1.1rem;font-size:.82rem}
+.burger{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer;position:relative}
+.burger span{position:absolute;left:8px;right:8px;height:2px;background:var(--ink);transition:.3s}
+.burger span:nth-child(1){top:14px}.burger span:nth-child(2){top:24px}
+.menu-open .burger span:nth-child(1){top:19px;transform:rotate(45deg)}
+.menu-open .burger span:nth-child(2){top:19px;transform:rotate(-45deg)}
+
+/* ===== MARCA (selo inclinado, igual no intro e no menu) ===== */
+.brand{position:relative;display:inline-flex;flex-direction:column;align-items:flex-start;transform:rotate(-6deg);font-family:var(--display);text-transform:uppercase;line-height:.86;color:var(--ink);font-size:15px;transition:color .3s}
+.brand .b-pill{background:var(--ink);color:var(--paper);border-radius:999px;padding:.26em .75em .18em;font-weight:800;font-size:.6em;letter-spacing:.08em;margin:0 0 .1em .12em;transition:background .3s,color .3s}
+.brand .b-word{font-weight:900;font-size:1.55em;letter-spacing:.01em;white-space:nowrap}
+.on-dark .brand{color:var(--paper)}
+.on-dark .brand .b-pill{background:var(--paper);color:var(--ink)}
+.nav.on-dark .nav-links{color:var(--paper)}
+.nav.on-dark .burger span{background:var(--paper)}
+.nav.on-dark .btn{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.nav.on-dark .btn:hover{background:var(--red);color:var(--paper);border-color:var(--red)}
+body.intro-on .nav .brand{visibility:hidden}
+body.intro-on .nav-links,body.intro-on .nav .btn,body.intro-on .burger{opacity:0}
+.nav-links,.nav .btn,.burger{transition:opacity .6s}
+
+/* ===== HERO (foto da fachada + letreiro gigante) ===== */
+.hero{position:relative;height:100svh;min-height:620px;overflow:hidden;background:#0e0c0a;color:var(--paper);perspective:1400px;padding:0}
+.hero-media{position:absolute;inset:0;transform-origin:50% 100%;overflow:hidden;will-change:transform}
+.hero-media img{width:100%;height:115%;object-fit:cover;filter:sepia(.22) contrast(1.06) brightness(.82);transform-origin:50% 50%;will-change:transform}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,12,10,.6) 0%,rgba(14,12,10,.1) 30%,rgba(14,12,10,.25) 55%,rgba(14,12,10,.94) 100%)}
+.hero-marquee{position:absolute;left:0;right:0;top:46%;transform:translateY(-50%);white-space:nowrap;font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(4.6rem,14vw,13rem);line-height:1;pointer-events:none;letter-spacing:-.01em}
+.hero-marquee .track{display:inline-flex;animation:marq 34s linear infinite}
+.hero-marquee .track span{padding-right:.35em}
+.hero-marquee em{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;color:#e0574e;letter-spacing:0}
+.hero-badge{position:absolute;right:4vw;top:24%;background:var(--paper);color:var(--ink);border-radius:999px;padding:.55rem 1.1rem .55rem .75rem;font-size:.8rem;font-weight:600;display:flex;gap:.55rem;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.hero-badge i{font-style:normal;color:var(--red);letter-spacing:.05em}
+.hero-badge b{font-family:var(--display);font-size:1.15rem;font-weight:900}
+.hero-bottom{position:absolute;left:0;right:0;bottom:0;padding-bottom:clamp(1.8rem,5vh,3.4rem)}
+.hero-bottom .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:3rem;align-items:end}
+.hero-lead{font-size:clamp(1.35rem,2.5vw,2.1rem);line-height:1.18;max-width:600px;font-weight:500;letter-spacing:-.01em}
+.hero-lead em{font-family:var(--serif);font-style:italic;font-weight:400;color:#e0574e}
+.hero-side p{color:rgba(239,230,210,.75);font-size:.95rem;margin-bottom:1.3rem;max-width:400px}
+.hero-ctas{display:flex;gap:.8rem;flex-wrap:wrap}
+.hero .btn{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.hero .btn:hover{background:var(--red);color:var(--paper);border-color:var(--red)}
+.hero .btn--ghost{background:transparent;color:var(--paper);border-color:rgba(239,230,210,.45)}
+.hero .btn--ghost:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.hero-scroll{position:absolute;left:50%;bottom:1.2rem;transform:translateX(-50%);width:1px;height:46px;background:rgba(239,230,210,.25);overflow:hidden}
+.hero-scroll::after{content:"";position:absolute;left:0;top:-50%;width:1px;height:50%;background:var(--paper);animation:drip 1.8s cubic-bezier(.6,0,.3,1) infinite}
+@keyframes drip{to{top:100%}}
+body.hero-wait [data-in]{opacity:0}
+
+/* ===== INTRO (cursores desenhando a logo) ===== */
+.intro{position:fixed;inset:0;z-index:200;background:#0e0c0a;color:var(--paper);font-family:var(--sans);overflow:hidden}
+.i-stage{position:absolute;inset:0;display:grid;place-items:center}
+.i-logo{position:relative;will-change:transform}
+.intro .brand{font-size:clamp(30px,7.6vw,92px);color:var(--paper)}
+.intro .brand .b-pill{background:var(--paper);color:var(--ink);clip-path:inset(0 100% 0 0 round 999px)}
+.intro .b-pill .t{display:inline-block;opacity:0}
+.intro .b-word span{display:inline-block;opacity:0;transform:translateY(.18em)}
+.i-est{position:absolute;right:.1em;bottom:-1.25em;font-family:var(--serif);font-style:italic;font-weight:400;font-size:.36em;color:#e0574e;opacity:0;text-transform:none;letter-spacing:.02em;white-space:nowrap}
+.i-sel{position:absolute;border:1.5px solid var(--c);pointer-events:none;opacity:0;transition:opacity .2s;z-index:2}
+.i-sel i{position:absolute;width:7px;height:7px;background:#0e0c0a;border:1.5px solid var(--c)}
+.i-sel i:nth-child(1){left:-4px;top:-4px}.i-sel i:nth-child(2){right:-4px;top:-4px}
+.i-sel i:nth-child(3){left:-4px;bottom:-4px}.i-sel i:nth-child(4){right:-4px;bottom:-4px}
+.i-sel b{position:absolute;left:50%;top:calc(100% + 7px);transform:translateX(-50%);background:var(--c);color:#0e0c0a;font:600 10px/1 'Work Sans',sans-serif;padding:3px 6px;border-radius:3px;white-space:nowrap;letter-spacing:0;text-transform:none}
+.i-cur{position:fixed;left:0;top:0;z-index:5;pointer-events:none;opacity:0;will-change:transform}
+.i-cur svg{width:20px;height:20px;display:block;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))}
+.i-cur span{position:absolute;left:17px;top:17px;background:var(--c);color:#0e0c0a;font:600 11px/1 'Work Sans',sans-serif;padding:5px 9px;border-radius:999px;white-space:nowrap}
+.i-avatars{position:absolute;top:22px;right:24px;display:flex}
+.i-avatars span{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:700 11px 'Work Sans',sans-serif;color:#0e0c0a;border:2px solid #0e0c0a;opacity:0;transform:scale(.6)}
+.i-avatars span+span{margin-left:-9px}
+.i-status{position:absolute;left:24px;bottom:22px;border:1px solid rgba(239,230,210,.16);border-radius:999px;padding:.6rem 1.05rem;font-size:.8rem;display:flex;gap:.6rem;align-items:center;min-width:210px;opacity:0}
+.i-status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--dot,#e0574e);transition:background .3s}
+.i-count{position:absolute;right:26px;bottom:26px;font:600 .85rem 'Work Sans',sans-serif;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+.intro.leaving .i-avatars,.intro.leaving .i-status,.intro.leaving .i-count{opacity:0!important;transition:opacity .4s}
+
+@media (max-width:960px){
+  .hero-bottom .wrap{grid-template-columns:1fr;gap:1.4rem}
+  .hero-badge{top:18%;right:5vw}
+  .hero-marquee{top:40%}
+  .hero-scroll{display:none}
+}
+@media (max-width:560px){
+  .i-status{min-width:0;font-size:.72rem;left:14px;bottom:16px}
+  .i-count{right:16px;bottom:20px}
+  .hero-side p{display:none}
+}
+
+/* MARQUEE */
+.marquee{background:var(--ink);color:var(--paper);overflow:hidden;padding:1.1rem 0;transform:rotate(-1.2deg);margin:2rem -2vw;border-block:3px solid var(--red)}
+.marquee-track{display:flex;gap:2.5rem;width:max-content;animation:marq 28s linear infinite;font-family:var(--display);font-weight:800;font-size:1.6rem;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+.marquee-track i{font-style:normal;color:var(--red)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+section{padding:clamp(5rem,10vw,8rem) 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:3.5rem;flex-wrap:wrap}
+.sec-head p{max-width:380px;color:var(--ink-2)}
+
+/* HISTÓRIA */
+.story .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:5rem;align-items:center}
+.story-img{position:relative}
+.story-img .frame{aspect-ratio:4/5;background:var(--ink-2);overflow:hidden}
+.story-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1)}
+.story-img .tag{position:absolute;left:-18px;bottom:28px;background:var(--red);color:var(--paper);font-family:var(--display);font-weight:800;text-transform:uppercase;padding:.6rem 1rem;font-size:1.05rem;letter-spacing:.05em}
+.story-txt p{font-size:1.08rem;color:var(--ink-2);margin:1.4rem 0}
+.story-txt blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.3;border-left:3px solid var(--red);padding-left:1.4rem;margin:2rem 0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:2.4rem}
+.stats div{padding:1.4rem 0}
+.stats div+div{border-left:1px solid var(--line);padding-left:1.4rem}
+.stats b{font-family:var(--display);font-weight:900;font-size:2.8rem;line-height:1;display:block}
+.stats span{font-size:.8rem;color:var(--muted)}
+
+/* SERVIÇOS */
+.services{background:var(--ink);color:var(--paper)}
+.services .eyebrow{color:#e0574e}
+.services .h2 em{color:#e0574e}
+.services .sec-head p{color:rgba(239,230,210,.7)}
+.svc-tabs{display:flex;gap:.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.svc-tab{background:none;border:1px solid rgba(239,230,210,.3);color:var(--paper);font-family:var(--sans);font-weight:500;padding:.6rem 1.1rem;cursor:pointer;font-size:.86rem;transition:.25s}
+.svc-tab.on,.svc-tab:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.svc-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;column-gap:4rem}
+.svc{display:grid;grid-template-columns:1fr auto;gap:.3rem 1rem;padding:1.5rem 0;border-bottom:1px solid rgba(239,230,210,.15);align-items:baseline}
+.svc.hide{display:none}
+.svc h3{font-family:var(--display);font-weight:800;font-size:1.6rem;text-transform:uppercase;letter-spacing:.02em;display:flex;align-items:baseline;gap:.8rem}
+.svc h3::after{content:"";flex:1;border-bottom:2px dotted rgba(239,230,210,.3);transform:translateY(-6px)}
+.svc .price{font-family:var(--display);font-weight:800;font-size:1.6rem;color:#e0574e}
+.svc p{font-size:.88rem;color:rgba(239,230,210,.6);grid-column:1}
+.svc a{grid-column:2;font-size:.76rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);opacity:.6;transition:.25s;justify-self:end}
+.svc a:hover{opacity:1;color:#e0574e}
+.svc-note{margin-top:2rem;font-size:.82rem;color:rgba(239,230,210,.5)}
+
+/* EQUIPE */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.barber{position:relative;cursor:pointer}
+.barber .ph{aspect-ratio:3/4;background:var(--paper-2);overflow:hidden;position:relative}
+.barber img{width:100%;height:100%;object-fit:cover;filter:grayscale(1);transition:filter .6s,transform .8s}
+.barber:hover img{filter:grayscale(0);transform:scale(1.04)}
+.barber .num{position:absolute;top:1rem;left:1rem;font-family:var(--display);font-weight:800;color:var(--paper);font-size:1rem;letter-spacing:.1em;mix-blend-mode:difference}
+.barber h3{font-family:var(--display);font-weight:800;font-size:1.7rem;text-transform:uppercase;margin-top:1rem;line-height:1}
+.barber p{font-family:var(--serif);font-style:italic;color:var(--muted)}
+.barber .agenda{display:inline-block;margin-top:.6rem;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border-bottom:2px solid var(--red);padding-bottom:2px}
+
+/* GALERIA */
+.gallery{background:var(--paper-2)}
+.g-filters{display:flex;gap:1.6rem;margin-bottom:2rem;flex-wrap:wrap}
+.g-filter{background:none;border:0;font-family:var(--display);font-weight:800;font-size:1.3rem;text-transform:uppercase;color:var(--muted);cursor:pointer;position:relative;padding-bottom:.2rem}
+.g-filter.on{color:var(--ink)}
+.g-filter.on::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--red)}
+.g-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:.8rem}
+.g-item{overflow:hidden;background:var(--ink-2);position:relative;cursor:zoom-in;transition:opacity .4s,transform .4s}
+.g-item.tall{grid-row:span 2}
+.g-item.wide{grid-column:span 2}
+.g-item.out{display:none}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.g-item:hover img{transform:scale(1.06)}
+.g-item span{position:absolute;left:.8rem;bottom:.7rem;background:var(--paper);font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:.3rem .6rem}
+.lightbox{position:fixed;inset:0;background:rgba(22,19,15,.94);z-index:100;display:none;place-items:center;padding:4vw}
+.lightbox.on{display:grid}
+.lightbox img{max-height:86vh;width:auto}
+.lightbox button{position:absolute;top:1.2rem;right:1.4rem;background:none;border:0;color:var(--paper);font-size:2.4rem;cursor:pointer;line-height:1}
+
+/* PRODUTOS */
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.prod{border:1px solid var(--line);padding:1.4rem;display:flex;flex-direction:column;transition:border-color .3s,transform .3s;background:rgba(255,255,255,.18)}
+.prod:hover{border-color:var(--ink);transform:translateY(-4px)}
+.prod .ic{height:150px;display:grid;place-items:center;margin-bottom:1.2rem}
+.prod .ic svg{height:120px;width:auto}
+.prod small{font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.prod h3{font-family:var(--display);font-weight:800;font-size:1.35rem;text-transform:uppercase;line-height:1.05;margin:.3rem 0 .8rem}
+.prod a{margin-top:auto;font-size:.8rem;font-weight:600;display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:.9rem}
+.prod a:hover{color:var(--red)}
+
+/* AMBIENTE */
+.amb{background:var(--navy);color:var(--paper)}
+.amb .wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.amb .eyebrow{color:#e0574e}.amb .h2 em{color:#e0574e}
+.amb-list{list-style:none;margin-top:2rem}
+.amb-list li{display:flex;gap:1.2rem;padding:1.2rem 0;border-bottom:1px solid rgba(239,230,210,.15)}
+.amb-list b{font-family:var(--display);font-weight:800;font-size:1.3rem;text-transform:uppercase;display:block}
+.amb-list span{font-size:.9rem;color:rgba(239,230,210,.7)}
+.amb-list i{font-style:normal;font-family:var(--display);color:#e0574e;font-weight:800;min-width:2rem}
+.amb-photos{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.amb-photos div{aspect-ratio:3/4;overflow:hidden;background:var(--ink-2)}
+.amb-photos div:nth-child(2){margin-top:3rem}
+.amb-photos img{width:100%;height:100%;object-fit:cover}
+
+/* VISITE */
+.visit .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem}
+.hours{list-style:none;margin:2rem 0}
+.hours li{display:flex;justify-content:space-between;padding:.8rem 0;border-bottom:1px dashed var(--line);font-size:.96rem}
+.hours li b{font-weight:600}
+.hours li.today{color:var(--red)}
+.info p{margin-bottom:.4rem;color:var(--ink-2)}
+.map{min-height:420px;border:2px solid var(--ink);filter:grayscale(.6) sepia(.25) contrast(1.05)}
+.map iframe{width:100%;height:100%;border:0;display:block;min-height:420px}
+
+/* CTA */
+.cta{background:var(--red);color:var(--paper);text-align:center;padding:clamp(5rem,10vw,7rem) 0}
+.cta .h2{font-size:clamp(3rem,9vw,7rem)}
+.cta .h2 em{color:var(--paper)}
+.cta p{max-width:460px;margin:1.4rem auto 2.4rem;opacity:.85}
+.cta .btn{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.cta .btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+footer{background:var(--ink);color:rgba(239,230,210,.7);padding:3.5rem 0 2rem;font-size:.86rem}
+.foot{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(239,230,210,.12)}
+footer .logo-txt{color:var(--paper)}
+footer .logo-mark{background:var(--paper);color:var(--ink)}
+footer h4{font-family:var(--display);font-weight:800;color:var(--paper);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.8rem;font-size:1.1rem}
+footer li{list-style:none;margin-bottom:.4rem}
+footer a:hover{color:var(--paper)}
+.foot-bottom{display:flex;justify-content:space-between;padding-top:1.5rem;font-size:.76rem;flex-wrap:wrap;gap:1rem}
+
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:60;width:58px;height:58px;border-radius:50%;background:#1f8f4e;color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .3s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:28px;height:28px}
+
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:960px){
+  .nav-links,.nav .btn{display:none}
+  .burger{display:block}
+  .menu-open .nav-links{display:flex;position:fixed;top:74px;left:0;right:0;bottom:0;flex-direction:column;background:var(--paper);padding:2rem 4vw;gap:0}
+  .menu-open .nav-links a{display:block;font-family:var(--display);font-weight:800;font-size:2.2rem;text-transform:uppercase;padding:.8rem 0;border-bottom:1px solid var(--line)}
+  .story .wrap,.amb .wrap,.visit .wrap{grid-template-columns:1fr;gap:3rem}
+  .hero-visual{max-width:440px;margin-left:30px}
+  .svc-list{grid-template-columns:1fr}
+  .team-grid,.prod-grid{grid-template-columns:1fr 1fr}
+  .g-grid{grid-template-columns:1fr 1fr;grid-auto-rows:180px}
+  .g-item.wide{grid-column:span 2}
+  .foot{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .team-grid{grid-template-columns:1fr}
+  .prod-grid{grid-template-columns:1fr 1fr;gap:.8rem}
+  .prod{padding:1rem}.prod .ic{height:100px}.prod .ic svg{height:84px}
+  .hero-meta{gap:1.4rem}
+  .seal{width:120px;height:120px;right:-14px}
+  .stats b{font-size:2.1rem}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.hero-title .line span{transform:none}.hero-photo{clip-path:none}.hero-lead,.hero-ctas,.hero-meta{opacity:1}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body class="intro-on hero-wait">
+
+<!-- ===== NAV ===== -->
+<header class="nav on-dark" id="nav">
+  <div class="wrap">
+    <a href="#topo" aria-label="Barbearia Brooklin, início">
+      <span class="brand"><span class="b-pill">Barbearia</span><span class="b-word">Brooklin</span></span>
+    </a>
+    <ul class="nav-links" id="links">
+      <li><a href="#historia">História</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#equipe">Barbeiros</a></li>
+      <li><a href="#cortes">Cortes</a></li>
+      <li><a href="#produtos">Produtos</a></li>
+      <li><a href="#visite">Visite</a></li>
+    </ul>
+    <a class="btn wa" data-msg="Olá! Vim pelo site e quero agendar um horário na Brooklin." href="#">Agendar horário</a>
+    <button class="burger" id="burger" aria-label="Abrir menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ===== INTRO: a tesoura e a navalha desenham a logo ===== -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="i-avatars"><span style="background:#e0574e">T</span><span style="background:#7fa3d6">N</span></div>
+  <div class="i-stage">
+    <div class="i-logo" id="iLogo">
+      <div class="brand" id="iBrand">
+        <span class="b-pill" id="iPill"><span class="t">Barbearia</span></span>
+        <span class="b-word" id="iWord"></span>
+        <span class="i-est" id="iEst">est. 2003 · São Luís</span>
+        <div class="i-sel" id="iSel" style="--c:#e0574e"><i></i><i></i><i></i><i></i><b></b></div>
+      </div>
+    </div>
+  </div>
+  <div class="i-cur" id="curT" style="--c:#e0574e">
+    <svg viewBox="0 0 24 24"><path d="M3 2l7.5 19 2.6-7.9L21 10.5z" fill="#e0574e" stroke="#0e0c0a" stroke-width="1.3" stroke-linejoin="round"/></svg>
+    <span>✂ Tesoura</span>
+  </div>
+  <div class="i-cur" id="curN" style="--c:#7fa3d6">
+    <svg viewBox="0 0 24 24"><path d="M3 2l7.5 19 2.6-7.9L21 10.5z" fill="#7fa3d6" stroke="#0e0c0a" stroke-width="1.3" stroke-linejoin="round"/></svg>
+    <span>Navalha</span>
+  </div>
+  <div class="i-status" id="iStatus"><span id="iStatusTxt">Abrindo a barbearia…</span></div>
+  <div class="i-count" id="iCount">000</div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="topo">
+  <div class="hero-media" id="heroMedia">
+    <!-- FOTO DA FACHADA: salve a foto da frente da barbearia como "fachada.jpg" na mesma pasta deste arquivo.
+         Enquanto ela não existir, aparece a foto de exemplo. -->
+    <img id="heroImg" src="fachada.jpg" alt="Fachada da Barbearia Brooklin em São Luís"
+         onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1800&q=80'">
+  </div>
+
+  <div class="hero-badge" data-in><i>★★★★★</i><b>4,8</b><span>262 avaliações no Google</span></div>
+
+  <div class="hero-marquee" data-in>
+    <div class="track">
+      <span>Do clássico ao moderno <em>—</em> desde 2003 <em>—</em></span>
+      <span>Do clássico ao moderno <em>—</em> desde 2003 <em>—</em></span>
+    </div>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="wrap">
+      <p class="hero-lead" data-in>Tradição e profissionalismo em cada corte. Há <span class="years">23</span> anos cuidando do visual de <em>São Luís.</em></p>
+      <div class="hero-side" data-in>
+        <p>Corte adulto, infantil, barba na navalha e produtos. Ambiente climatizado na R. São Judas Tadeu.</p>
+        <div class="hero-ctas">
+          <a class="btn wa" data-msg="Olá! Vim pelo site e quero agendar um horário na Brooklin." href="#">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.5.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+            Agendar no WhatsApp
+          </a>
+          <a class="btn btn--ghost" href="#servicos">Ver serviços</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll" data-in></div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Corte adulto</span><i>✦</i><span>Barba na navalha</span><i>✦</i><span>Corte infantil</span><i>✦</i><span>Degradê</span><i>✦</i><span>Toalha quente</span><i>✦</i><span>Produtos</span><i>✦</i><span>Desde 2003</span><i>✦</i>
+    <span>Corte adulto</span><i>✦</i><span>Barba na navalha</span><i>✦</i><span>Corte infantil</span><i>✦</i><span>Degradê</span><i>✦</i><span>Toalha quente</span><i>✦</i><span>Produtos</span><i>✦</i><span>Desde 2003</span><i>✦</i>
+  </div>
+</div>
+
+<!-- ===== HISTÓRIA ===== -->
+<section class="story" id="historia">
+  <div class="wrap">
+    <div class="story-img reveal">
+      <div class="frame"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=900&q=80" alt="Barbeiro finalizando um corte" onerror="this.remove()"></div>
+      <div class="tag">Est. 2003</div>
+    </div>
+    <div class="story-txt reveal">
+      <span class="sec-num">01 —</span>
+      <p class="eyebrow" style="margin-top:.8rem">Nossa história</p>
+      <h2 class="h2" style="margin-top:1rem">Mais de duas décadas <em>na cadeira.</em></h2>
+      <p>A Brooklin abriu as portas em 2003 com uma ideia simples: fazer o corte bem feito, do jeito que o cliente pediu, sem pressa. De lá pra cá a moda mudou várias vezes, e a gente acompanhou cada uma, sem largar a tesoura e a navalha.</p>
+      <blockquote>“Do clássico ao moderno, quem senta aqui sai do jeito que entrou querendo sair.”</blockquote>
+      <div class="stats">
+        <div><b class="years">23</b><span>anos em São Luís</span></div>
+        <div><b>4,8★</b><span>262 avaliações no Google</span></div>
+        <div><b>100%</b><span>climatizado</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVIÇOS ===== -->
+<section class="services" id="servicos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="sec-num" style="color:rgba(239,230,210,.5)">02 —</span>
+        <p class="eyebrow" style="margin-top:.8rem">Serviços & valores</p>
+        <h2 class="h2" style="margin-top:1rem">O que a gente <em>faz.</em></h2>
+      </div>
+      <p>Escolha o serviço e toque em “agendar”: a mensagem já vai pronta pro nosso WhatsApp.</p>
+    </div>
+    <div class="svc-tabs reveal">
+      <button class="svc-tab on" data-cat="all">Todos</button>
+      <button class="svc-tab" data-cat="corte">Cortes</button>
+      <button class="svc-tab" data-cat="barba">Barba</button>
+      <button class="svc-tab" data-cat="combo">Combos</button>
+    </div>
+    <!-- VALORES DE EXEMPLO: confirmar com a barbearia -->
+    <ul class="svc-list reveal">
+      <li class="svc" data-cat="corte"><h3>Corte adulto</h3><span class="price">R$ 35</span><p>Máquina, tesoura ou degradê · 40 min</p><a class="wa" data-msg="Olá! Quero agendar um Corte adulto." href="#">Agendar →</a></li>
+      <li class="svc" data-cat="corte"><h3>Corte infantil</h3><span class="price">R$ 30</span><p>Até 12 anos, com paciência de sobra · 30 min</p><a class="wa" data-msg="Olá! Quero agendar um Corte infantil." href="#">Agendar →</a></li>
+      <li class="svc" data-cat="barba"><h3>Barba</h3><span class="price">R$ 25</span><p>Navalha, toalha quente e balm · 30 min</p><a class="wa" data-msg="Olá! Quero agendar uma Barba." href="#">Agendar →</a></li>
+      <li class="svc" data-cat="barba"><h3>Pezinho & acabamento</h3><span class="price">R$ 10</span><p>Contorno e nuca · 10 min</p><a class="wa" data-msg="Olá! Quero agendar Pezinho/acabamento." href="#">Agendar →</a></li>
+      <li class="svc" data-cat="corte"><h3>Sobrancelha</h3><span class="price">R$ 10</span><p>Navalha ou pinça · 10 min</p><a class="wa" data-msg="Olá! Quero agendar Sobrancelha." href="#">Agendar →</a></li>
+      <li class="svc" data-cat="combo"><h3>Corte + barba</h3><span class="price">R$ 55</span><p>O clássico da casa · 1h</p><a class="wa" data-msg="Olá! Quero agendar o Combo corte + barba." href="#">Agendar →</a></li>
+      <li class="svc" data-cat="combo"><h3>Pai & filho</h3><span class="price">R$ 60</span><p>Corte adulto + corte infantil · 1h10</p><a class="wa" data-msg="Olá! Quero agendar o Combo pai & filho." href="#">Agendar →</a></li>
+      <li class="svc" data-cat="corte"><h3>Pigmentação</h3><span class="price">R$ 20</span><p>Realce do corte ou da barba · 20 min</p><a class="wa" data-msg="Olá! Quero agendar Pigmentação." href="#">Agendar →</a></li>
+    </ul>
+    <p class="svc-note">Valores podem variar conforme o tipo de cabelo. Pagamento em Pix, cartão ou dinheiro.</p>
+  </div>
+</section>
+
+<!-- ===== EQUIPE ===== -->
+<section class="team" id="equipe">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="sec-num">03 —</span>
+        <p class="eyebrow" style="margin-top:.8rem">Equipe profissional</p>
+        <h2 class="h2" style="margin-top:1rem">Escolha seu <em>barbeiro.</em></h2>
+      </div>
+      <p>Cada um com sua mão. Toque no nome e agende direto com quem você já confia.</p>
+    </div>
+    <!-- TROCAR nomes, especialidades e fotos pelos barbeiros reais -->
+    <div class="team-grid">
+      <a class="barber reveal wa" data-msg="Olá! Quero agendar com o barbeiro Nome 01." href="#">
+        <div class="ph"><span class="num">01</span><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=700&q=80" alt="Barbeiro" onerror="this.remove()"></div>
+        <h3>Nome do barbeiro</h3><p>Mestre da casa · clássicos e navalha</p><span class="agenda">Agendar com ele</span>
+      </a>
+      <a class="barber reveal wa" data-msg="Olá! Quero agendar com o barbeiro Nome 02." href="#">
+        <div class="ph"><span class="num">02</span><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=700&q=80" alt="Barbeiro" onerror="this.remove()"></div>
+        <h3>Nome do barbeiro</h3><p>Degradê e cortes modernos</p><span class="agenda">Agendar com ele</span>
+      </a>
+      <a class="barber reveal wa" data-msg="Olá! Quero agendar com o barbeiro Nome 03." href="#">
+        <div class="ph"><span class="num">03</span><img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=700&q=80" alt="Barbeiro" onerror="this.remove()"></div>
+        <h3>Nome do barbeiro</h3><p>Barba desenhada e infantil</p><span class="agenda">Agendar com ele</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALERIA ===== -->
+<section class="gallery" id="cortes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="sec-num">04 —</span>
+        <p class="eyebrow" style="margin-top:.8rem">Portfólio</p>
+        <h2 class="h2" style="margin-top:1rem">Saiu da <em>cadeira.</em></h2>
+      </div>
+      <a class="btn btn--ghost" href="https://www.instagram.com/barbeariabrooklinslz/" target="_blank" rel="noopener">Mais no @barbeariabrooklinslz</a>
+    </div>
+    <div class="g-filters reveal">
+      <button class="g-filter on" data-f="all">Todos</button>
+      <button class="g-filter" data-f="classico">Clássico</button>
+      <button class="g-filter" data-f="moderno">Moderno</button>
+      <button class="g-filter" data-f="barba">Barba</button>
+      <button class="g-filter" data-f="infantil">Infantil</button>
+    </div>
+    <!-- TROCAR pelas fotos reais dos destaques do Instagram -->
+    <div class="g-grid reveal">
+      <div class="g-item tall" data-f="classico"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800&q=80" alt="Corte clássico" onerror="this.remove()"><span>Clássico</span></div>
+      <div class="g-item" data-f="moderno"><img src="https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?w=800&q=80" alt="Degradê" onerror="this.remove()"><span>Degradê</span></div>
+      <div class="g-item" data-f="barba"><img src="https://images.unsplash.com/photo-1621607512214-68297480165e?w=800&q=80" alt="Barba" onerror="this.remove()"><span>Barba</span></div>
+      <div class="g-item tall" data-f="moderno"><img src="https://images.unsplash.com/photo-1567894340315-735d7c361db0?w=800&q=80" alt="Corte moderno" onerror="this.remove()"><span>Moderno</span></div>
+      <div class="g-item wide" data-f="classico"><img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?w=1200&q=80" alt="Navalha" onerror="this.remove()"><span>Navalha</span></div>
+      <div class="g-item" data-f="infantil"><img src="https://images.unsplash.com/photo-1593702275687-f8b402bf1fb5?w=800&q=80" alt="Corte infantil" onerror="this.remove()"><span>Infantil</span></div>
+      <div class="g-item" data-f="barba"><img src="https://images.unsplash.com/photo-1532710093739-9470acff878f?w=800&q=80" alt="Barba feita" onerror="this.remove()"><span>Barba</span></div>
+    </div>
+  </div>
+</section>
+<div class="lightbox" id="lb"><button aria-label="Fechar">×</button><img alt=""></div>
+
+<!-- ===== PRODUTOS ===== -->
+<section class="products" id="produtos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="sec-num">05 —</span>
+        <p class="eyebrow" style="margin-top:.8rem">Os melhores produtos estão aqui</p>
+        <h2 class="h2" style="margin-top:1rem">Leve pra <em>casa.</em></h2>
+      </div>
+      <p>O mesmo produto que usamos na cadeira, pra manter o corte e a barba em dia. Reserve pelo WhatsApp e retire na barbearia.</p>
+    </div>
+    <!-- TROCAR pelos produtos/marcas que a Brooklin vende -->
+    <div class="prod-grid">
+      <div class="prod reveal"><div class="ic"><svg viewBox="0 0 80 120"><rect x="28" y="4" width="24" height="16" rx="3" fill="#16130f"/><rect x="16" y="20" width="48" height="94" rx="10" fill="#1f2f4a"/><rect x="22" y="48" width="36" height="40" fill="#efe6d2"/><rect x="26" y="60" width="28" height="3" fill="#b3261e"/><rect x="26" y="68" width="20" height="2" fill="#16130f"/></svg></div><small>Barba</small><h3>Óleo para barba</h3><a class="wa" data-msg="Olá! Quero reservar o Óleo para barba." href="#"><span>Reservar</span><span>→</span></a></div>
+      <div class="prod reveal"><div class="ic"><svg viewBox="0 0 120 90"><rect x="10" y="18" width="100" height="22" rx="4" fill="#16130f"/><rect x="14" y="40" width="92" height="44" rx="6" fill="#b3261e"/><rect x="34" y="52" width="52" height="20" fill="#efe6d2"/><rect x="40" y="60" width="40" height="3" fill="#16130f"/></svg></div><small>Cabelo</small><h3>Pomada modeladora</h3><a class="wa" data-msg="Olá! Quero reservar a Pomada modeladora." href="#"><span>Reservar</span><span>→</span></a></div>
+      <div class="prod reveal"><div class="ic"><svg viewBox="0 0 80 120"><rect x="32" y="2" width="16" height="12" fill="#16130f"/><path d="M30 14h20l6 14H24z" fill="#16130f"/><rect x="20" y="28" width="40" height="88" rx="6" fill="#efe6d2" stroke="#16130f" stroke-width="3"/><rect x="26" y="56" width="28" height="30" fill="#1f2f4a"/><rect x="30" y="66" width="20" height="3" fill="#efe6d2"/></svg></div><small>Cabelo</small><h3>Shampoo de barbearia</h3><a class="wa" data-msg="Olá! Quero reservar o Shampoo." href="#"><span>Reservar</span><span>→</span></a></div>
+      <div class="prod reveal"><div class="ic"><svg viewBox="0 0 80 120"><rect x="22" y="8" width="36" height="14" rx="2" fill="#b3261e"/><rect x="18" y="22" width="44" height="92" rx="8" fill="#16130f"/><rect x="24" y="50" width="32" height="34" fill="#efe6d2"/><rect x="28" y="62" width="24" height="3" fill="#b3261e"/></svg></div><small>Pós-barba</small><h3>Loção pós-barba</h3><a class="wa" data-msg="Olá! Quero reservar a Loção pós-barba." href="#"><span>Reservar</span><span>→</span></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AMBIENTE ===== -->
+<section class="amb" id="ambiente">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="sec-num" style="color:rgba(239,230,210,.5)">06 —</span>
+      <p class="eyebrow" style="margin-top:.8rem">O espaço</p>
+      <h2 class="h2" style="margin-top:1rem">Chega cedo, <em>fica à vontade.</em></h2>
+      <ul class="amb-list">
+        <li><i>01</i><div><b>Ambiente climatizado</b><span>Ar-condicionado o dia todo, porque São Luís não perdoa.</span></div></li>
+        <li><i>02</i><div><b>Conveniência</b><span>Bebida gelada e alguma coisa pra beliscar enquanto espera.</span></div></li>
+        <li><i>03</i><div><b>Equipe profissional</b><span>Barbeiros experientes, do corte social ao degradê navalhado.</span></div></li>
+      </ul>
+    </div>
+    <div class="amb-photos reveal">
+      <!-- TROCAR por fotos reais do espaço -->
+      <div><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=700&q=80" alt="Interior da barbearia" onerror="this.remove()"></div>
+      <div><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=700&q=80" alt="Cadeiras" onerror="this.remove()"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISITE ===== -->
+<section class="visit" id="visite">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="sec-num">07 —</span>
+      <p class="eyebrow" style="margin-top:.8rem">Visite a Brooklin</p>
+      <h2 class="h2" style="margin-top:1rem">A cadeira tá <em>esperando.</em></h2>
+      <!-- CONFIRMAR horários com a barbearia -->
+      <ul class="hours" id="hours">
+        <li data-d="1"><b>Segunda</b><span>9h às 19h</span></li>
+        <li data-d="2"><b>Terça</b><span>9h às 19h</span></li>
+        <li data-d="3"><b>Quarta</b><span>9h às 19h</span></li>
+        <li data-d="4"><b>Quinta</b><span>9h às 19h</span></li>
+        <li data-d="5"><b>Sexta</b><span>9h às 19h</span></li>
+        <li data-d="6"><b>Sábado</b><span>8h às 18h</span></li>
+        <li data-d="0"><b>Domingo</b><span>Fechado</span></li>
+      </ul>
+      <div class="info">
+        <p><b>WhatsApp:</b> (98) 98784-2926</p>
+        <p><b>Endereço:</b> R. São Judas Tadeu, Qd. 01, Lj 02 · São Luís-MA</p>
+        <p><b>Google:</b> nota 4,8 com 262 avaliações</p>
+      </div>
+      <div style="display:flex;gap:1rem;margin-top:1.8rem;flex-wrap:wrap">
+        <a class="btn wa" data-msg="Olá! Vim pelo site e quero agendar um horário." href="#">Agendar agora</a>
+        <a class="btn btn--ghost" href="https://maps.google.com/?q=-2.522724,-44.2422232" target="_blank" rel="noopener">Como chegar</a>
+      </div>
+    </div>
+    <div class="map reveal">
+      <iframe title="Mapa da Barbearia Brooklin" loading="lazy" src="https://maps.google.com/maps?q=-2.522724,-44.2422232&z=16&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta">
+  <div class="wrap reveal">
+    <h2 class="h2">Bora dar um <em>trato?</em></h2>
+    <p>Manda um oi no WhatsApp, escolhe o serviço e o barbeiro. A gente confirma seu horário rapidinho.</p>
+    <a class="btn wa" data-msg="Olá! Vim pelo site e quero agendar um horário na Brooklin." href="#">Agendar no WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#topo" class="on-dark" style="display:inline-block;padding:.4rem 0"><span class="brand" style="font-size:20px"><span class="b-pill">Barbearia</span><span class="b-word">Brooklin</span></span></a>
+        <p style="margin-top:1rem;max-width:320px">Tradição & profissionalismo desde 2003. Do clássico ao moderno, em São Luís do Maranhão.</p>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a class="wa" data-msg="Olá!" href="#">WhatsApp (98) 98784-2926</a></li>
+          <li><a href="tel:+5598987842926">Ligar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Redes</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/barbeariabrooklinslz/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/barbeariabrooklinslz" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr">2026</span> Barbearia Brooklin · São Luís-MA</span>
+      <span>Site por Thiago Rodrigues</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float wa" data-msg="Olá! Vim pelo site e quero agendar um horário na Brooklin." href="#" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.5.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+</a>
+
+<script>
+/* ==== CONFIG: número do WhatsApp (só dígitos, com 55 + DDD) ==== */
+const WHATSAPP = '5598987842926';
+
+document.querySelectorAll('.wa').forEach(a=>{
+  const msg = a.dataset.msg || 'Olá!';
+  a.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+  a.target = '_blank'; a.rel = 'noopener';
+});
+
+/* anos de casa, sempre atualizado */
+const yrs = new Date().getFullYear() - 2003;
+document.querySelectorAll('.years').forEach(e=>e.textContent = yrs);
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* nav */
+const nav = document.getElementById('nav');
+const heroEl=document.getElementById('topo');
+function navState(){const past=scrollY>heroEl.offsetHeight-90;nav.classList.toggle('scrolled',past);nav.classList.toggle('on-dark',!past&&!document.body.classList.contains('menu-open'))}
+addEventListener('scroll',navState,{passive:true});navState();
+document.getElementById('burger').onclick=()=>{document.body.classList.toggle('menu-open');navState()};
+document.querySelectorAll('#links a').forEach(a=>a.onclick=()=>{document.body.classList.remove('menu-open');navState()});
+
+/* reveal */
+const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(el.closest('.team-grid,.prod-grid')?(i%4)*.08:0)+'s';io.observe(el)});
+
+/* filtro de serviços */
+document.querySelectorAll('.svc-tab').forEach(t=>t.onclick=()=>{
+  document.querySelectorAll('.svc-tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');
+  document.querySelectorAll('.svc').forEach(s=>s.classList.toggle('hide',t.dataset.cat!=='all'&&s.dataset.cat!==t.dataset.cat));
+});
+
+/* filtro da galeria */
+document.querySelectorAll('.g-filter').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.g-filter').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  document.querySelectorAll('.g-item').forEach(g=>g.classList.toggle('out',b.dataset.f!=='all'&&g.dataset.f!==b.dataset.f));
+});
+
+/* lightbox */
+const lb=document.getElementById('lb'), lbImg=lb.querySelector('img');
+document.querySelectorAll('.g-item').forEach(g=>g.onclick=()=>{const i=g.querySelector('img');if(!i)return;lbImg.src=i.src.replace(/w=\d+/,'w=1600');lbImg.alt=i.alt;lb.classList.add('on')});
+lb.onclick=e=>{if(e.target!==lbImg)lb.classList.remove('on')};
+addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
+
+/* destaca o dia de hoje nos horários */
+const today=new Date().getDay();
+document.querySelectorAll('#hours li').forEach(li=>{if(+li.dataset.d===today){li.classList.add('today');li.querySelector('b').textContent+=' · hoje'}});
+
+/* ================= INTRO + HERO 3D ================= */
+(function(){
+  const intro=document.getElementById('intro');
+  const body=document.body, root=document.documentElement;
+  const media=document.getElementById('heroMedia'), heroImg=document.getElementById('heroImg');
+  const heroIns=[...document.querySelectorAll('.hero [data-in]')];
+  const EASE='cubic-bezier(.65,0,.35,1)', OUT='cubic-bezier(.2,.8,.2,1)';
+  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+
+  /* parallax + inclinação 3D da foto (depois da abertura) */
+  let mx=0,my=0,cx=0,cy=0,tilt=false;
+  addEventListener('mousemove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5},{passive:true});
+  (function loop(){
+    cx+=(mx-cx)*.06;cy+=(my-cy)*.06;
+    const s=Math.min(scrollY,innerHeight);
+    if(tilt) heroImg.style.transform=`translate3d(0,${s*.22-innerHeight*.07}px,0) rotateY(${cx*5}deg) rotateX(${-cy*4}deg) scale(1.06)`;
+    requestAnimationFrame(loop);
+  })();
+
+  function heroIn(){
+    tilt=true;
+    heroIns.forEach((el,i)=>{
+      const base=getComputedStyle(el).transform, b=base==='none'?'':base;
+      el.animate([{opacity:0,transform:b+' translateY(40px)'},{opacity:1,transform:b||'none'}],
+        {duration:1000,delay:120+i*110,easing:OUT,fill:'backwards'});
+    });
+    body.classList.remove('hero-wait');
+  }
+
+  /* sem animação (acessibilidade) */
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+    intro.remove(); body.classList.remove('intro-on','hero-wait'); return;
+  }
+  if('scrollRestoration' in history) history.scrollRestoration='manual';
+  scrollTo(0,0);
+  root.style.overflow='hidden';
+
+  /* elementos do intro */
+  const logo=document.getElementById('iLogo'), brand=document.getElementById('iBrand');
+  const pill=document.getElementById('iPill'), pillTxt=pill.querySelector('.t');
+  const word=document.getElementById('iWord'), est=document.getElementById('iEst');
+  const sel=document.getElementById('iSel'), selLbl=sel.querySelector('b');
+  const curT=document.getElementById('curT'), curN=document.getElementById('curN');
+  const status=document.getElementById('iStatus'), statusTxt=document.getElementById('iStatusTxt');
+  const count=document.getElementById('iCount');
+  const avatars=[...intro.querySelectorAll('.i-avatars span')];
+
+  'BROOKLIN'.split('').forEach(l=>{const s=document.createElement('span');s.textContent=l;word.appendChild(s)});
+  const letters=[...word.children];
+
+  /* contador 000 → 100 */
+  const T0=performance.now(), TOTAL=3300;
+  (function tick(t){
+    const p=Math.min((t-T0)/TOTAL,1), e=1-Math.pow(1-p,2.2);
+    count.textContent=String(Math.round(e*100)).padStart(3,'0');
+    if(p<1) requestAnimationFrame(tick);
+  })(T0);
+
+  function say(txt,color){
+    status.style.setProperty('--dot',color);
+    statusTxt.textContent='';
+    let i=0;const iv=setInterval(()=>{statusTxt.textContent=txt.slice(0,++i);if(i>=txt.length)clearInterval(iv)},22);
+  }
+  function place(c,x,y){c._x=x;c._y=y;c.style.transform=`translate(${x}px,${y}px)`}
+  function move(c,x,y,dur,ease=EASE){
+    const a=c.animate([{transform:`translate(${c._x}px,${c._y}px)`},{transform:`translate(${x}px,${y}px)`}],{duration:dur,easing:ease,fill:'forwards'});
+    c._x=x;c._y=y;return a.finished;
+  }
+  /* caixa de seleção posicionada dentro da logo (gira junto com ela) */
+  function box(el,color,label,w){
+    sel.style.setProperty('--c',color);
+    const p=4;
+    sel.style.left=(el.offsetLeft+(el.offsetParent!==brand?el.offsetParent.offsetLeft:0)-p)+'px';
+    sel.style.top=(el.offsetTop+(el.offsetParent!==brand?el.offsetParent.offsetTop:0)-p)+'px';
+    sel.style.width=((w??el.offsetWidth)+p*2)+'px';
+    sel.style.height=(el.offsetHeight+p*2)+'px';
+    selLbl.textContent=label;sel.style.opacity=1;
+  }
+  const R=el=>el.getBoundingClientRect();
+
+  async function run(){
+    await sleep(250);
+    avatars.forEach((a,i)=>a.animate([{opacity:0,transform:'scale(.6)'},{opacity:1,transform:'scale(1)'}],{duration:500,delay:i*120,easing:OUT,fill:'forwards'}));
+    status.animate([{opacity:0},{opacity:1}],{duration:500,fill:'forwards'});
+
+    /* 1. Tesoura desenha o selo "BARBEARIA" */
+    const pr=R(pill);
+    place(curT,innerWidth*.82,innerHeight*.78);
+    curT.animate([{opacity:0},{opacity:1}],{duration:300,fill:'forwards'});
+    say('Tesoura está desenhando…','#e0574e');
+    await move(curT,pr.left,pr.top+pr.height*.2,650);
+    const W=pill.offsetWidth,H=pill.offsetHeight;
+    box(pill,'#e0574e',`0 × ${H}`,0);
+    const t1=performance.now();
+    await new Promise(res=>{
+      const DUR=700;
+      move(curT,pr.right,pr.bottom-pr.height*.15,DUR,'cubic-bezier(.45,0,.25,1)');
+      (function f(t){
+        const p=Math.min((t-t1)/DUR,1), e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
+        pill.style.clipPath=`inset(0 ${100-e*100}% 0 0 round 999px)`;
+        sel.style.width=(W*e+8)+'px';
+        selLbl.textContent=`${Math.round(W*e)} × ${H}`;
+        p<1?requestAnimationFrame(f):res();
+      })(t1);
+    });
+    pillTxt.animate([{opacity:0,transform:'translateY(.3em)'},{opacity:1,transform:'none'}],{duration:350,easing:OUT,fill:'forwards'});
+    await sleep(150);
+
+    /* 2. Navalha escreve "BROOKLIN" letra por letra */
+    const wr=R(word);
+    place(curN,innerWidth*.12,innerHeight*.9);
+    curN.animate([{opacity:0},{opacity:1}],{duration:300,fill:'forwards'});
+    move(curT,innerWidth*.86,innerHeight*.3,900);
+    say('Navalha está escrevendo…','#7fa3d6');
+    await move(curN,wr.left,wr.bottom-wr.height*.3,600);
+    for(const l of letters){
+      const lr=R(l);
+      box(l,'#7fa3d6',l.textContent);
+      move(curN,lr.right-lr.width*.2,lr.bottom-lr.height*.25,85,'linear');
+      l.animate([{opacity:0,transform:'translateY(.18em)'},{opacity:1,transform:'none'}],{duration:260,easing:OUT,fill:'forwards'});
+      await sleep(85);
+    }
+    box(word,'#7fa3d6',`${word.offsetWidth} × ${word.offsetHeight}`);
+    await sleep(260);
+    sel.style.opacity=0;
+
+    /* 3. Assinatura e pronto */
+    est.animate([{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:450,easing:OUT,fill:'forwards'});
+    move(curN,innerWidth*.08,innerHeight*1.1,800);
+    move(curT,innerWidth*1.05,innerHeight*.2,800);
+    say('Pronto. Pode sentar.','#5fbf7f');
+    await sleep(Math.max(0,TOTAL-(performance.now()-T0))+250);
+
+    /* 4. A logo voa pro menu e a foto sobe em 3D */
+    intro.classList.add('leaving');
+    est.animate([{opacity:1},{opacity:0}],{duration:250,fill:'forwards'});
+    const navBrand=document.querySelector('.nav .brand');
+    const a=R(brand), b=R(navBrand);
+    const s=b.width/a.width, dx=(b.left+b.width/2)-(a.left+a.width/2), dy=(b.top+b.height/2)-(a.top+a.height/2);
+    intro.style.background='transparent';
+    const fly=logo.animate([{transform:'none'},{transform:`translate(${dx}px,${dy}px) scale(${s})`}],{duration:1150,easing:'cubic-bezier(.7,0,.2,1)',fill:'forwards'});
+    media.animate([
+      {transform:'translateY(100%) rotateX(42deg) scale(.82)',borderRadius:'50% 50% 0 0 / 30% 30% 0 0'},
+      {transform:'translateY(18%) rotateX(16deg) scale(.94)',borderRadius:'36% 36% 0 0 / 14% 14% 0 0',offset:.55},
+      {transform:'none',borderRadius:'0'}
+    ],{duration:1500,easing:'cubic-bezier(.6,0,.2,1)',fill:'backwards'});
+    heroImg.animate([{transform:'translate3d(0,0,0) scale(1.3)'},{transform:`translate3d(0,${-innerHeight*.07}px,0) scale(1.06)`}],{duration:1700,easing:OUT});
+    await sleep(700);
+    heroIn();
+    await fly.finished;
+    body.classList.remove('intro-on');
+    intro.remove();
+    root.style.overflow='';
+  }
+  document.fonts.ready.then(run);
+})();
+</script>
+</body>
+</html>
